@@ -16,7 +16,6 @@ var uglify = require('gulp-uglify');
 var merge = require('merge-stream');
 var reload = browserSync.reload;
 
-// Where our files are located
 var jsFiles = "src/js/**/*.js";
 var viewFiles = "src/js/**/*.html";
 var scssFiles = "src/scss/**/**.**";
@@ -25,13 +24,11 @@ var isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'developmen
 var interceptErrors = function (error) {
   var args = Array.prototype.slice.call(arguments);
 
-  // Send error to notification center with gulp-notify
   notify.onError({
     title: 'Compile Error',
     message: '<%= error.message %>'
   }).apply(this, args);
 
-  // Keep gulp from hanging on this task
   this.emit('end');
 };
 
@@ -75,9 +72,7 @@ gulp.task('browserify', ['views'], function () {
     .transform(ngAnnotate)
     .bundle()
     .on('error', interceptErrors)
-    //Pass desired output filename to vinyl-source-stream
     .pipe(source('main.js'))
-    // Start piping stream to tasks!
     .pipe(gulp.dest('./build/'));
 });
 
@@ -102,8 +97,6 @@ gulp.task('views', function () {
     .pipe(gulp.dest('./src/js/config/'));
 });
 
-// This task is used for building production ready
-// minified JS/CSS files into the dist/ folder
 gulp.task('build', ['html', 'browserify'], function () {
   var html = gulp.src("build/index.html")
     .pipe(gulp.dest('./dist/'));
