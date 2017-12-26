@@ -1,0 +1,68 @@
+<nav class="navbar">
+    <div class="logo">
+      <a class="logo__link"
+        ui-sref="app.home"
+        ng-bind="::$ctrl.appName">
+      </a>
+    </div>
+    
+    <ul class="navbar-list" show-authed="false">
+
+      <li class="navbar-list__item">
+        <a class="navbar-list__link ion-ios-home"
+          ui-sref-active="active"
+          ui-sref="app.home">
+          {{'home' | translate}}
+        </a>
+      </li>
+
+      <li class="navbar-list__item">
+        <a class="navbar-list__link ion-log-in"
+          ui-sref-active="active"
+          ui-sref="app.login">
+          {{'signIn' | translate}}
+        </a>
+      </li>
+
+      <li class="navbar-list__item">
+        <a class="navbar-list__link ion-person-add"
+          ui-sref-active="active"
+          ui-sref="app.register">
+          {{'signUp' | translate}}
+        </a>
+      </li>
+
+    </ul>
+
+    <ul class="navbar-list" show-authed="true">
+
+    <li class="navbar-list__item">
+      <a class="navbar-list__link ion-ios-home"
+        ui-sref-active="active"
+        ui-sref="app.home">
+        {{'home' | translate}}
+      </a>
+    </li>
+
+    <li class="navbar-list__item">
+      <a class="navbar-list__link ion-person"
+        ui-sref-active="active"
+        ui-sref="app.profile({ username: $ctrl.currentUser.username })">
+        {{ $ctrl.currentUser.username }}
+      </a>
+    </li>
+
+    <li class="navbar-list__item">
+      <button class="logout ion-log-out"
+        ng-click="$ctrl.logout()">
+        {{'logout' | translate}}
+      </button>
+    </li>
+
+  </ul>
+  <div class="select-language" ng-controller="localizationCtrl as ctrl">
+    <select ng-options="language | translate for language in ctrl.languages" ng-model="ctrl.language" ng-change="ctrl.updateLanguage()">
+    </select>
+  </div>
+  
+</nav>

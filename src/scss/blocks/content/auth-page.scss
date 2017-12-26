@@ -1,0 +1,60 @@
+.auth-page {
+    padding: 1rem 0;
+
+    @media screen and (min-width: 320px) {
+        min-width: 100%;
+        background: #fff;
+    }
+
+    @media screen and (min-width: 768px) {
+        background: $custom-color;
+        min-width: 20rem;
+    }
+
+    &__content {
+        // margin: auto;
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 1.2rem;
+        font-family: $custom-font-family;
+        padding-bottom: 1rem;
+
+        @media screen and (min-width: 320px) {
+            color: #000;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        @media screen and (min-width: 768px) {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__state {
+        text-align: center;
+        margin: 1rem .5rem 0;
+    }
+
+    &__state-link {
+        font-size: 1rem;
+        font-family: $custom-font-family;
+        opacity: .8;
+
+        @media screen and (min-width: 320px) {
+            color: #000;
+        }
+
+        @media screen and (min-width: 768px) {
+            color: #fff;
+        }
+
+        &:hover {
+            opacity: 1;
+            transition: $default-transition;
+        }
+    }
+}

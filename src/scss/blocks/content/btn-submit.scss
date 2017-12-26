@@ -1,0 +1,16 @@
+.btn-submit {
+    padding: .425rem 1.25rem;
+    background: $link-color;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    border: .0625rem solid #fff;
+    font-family: $addition-font-family;
+    transition: $default-transition;
+
+    &:hover {
+        color: $link-color;
+        background: #fff;
+        border: .0625rem solid $link-color;
+    }
+}

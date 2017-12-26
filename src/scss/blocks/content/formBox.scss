@@ -1,0 +1,27 @@
+.formBox {
+    padding: .5rem;
+
+    &__main-form-group {
+        text-align: center;
+    }
+    &__form-group {
+        margin: .5rem 0;
+    }
+
+    &__field {
+        padding: .525rem 1.25rem;
+        border: .0625rem solid #999;
+        display: block;
+        width: 100%;
+        outline: none;
+        font-family: $custom-font-family;
+
+        &:focus {
+            border: .0625rem solid $link-color;
+        }
+    }
+
+    &__btn {
+        margin-top: .5rem;
+    }
+}

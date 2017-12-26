@@ -1,0 +1,28 @@
+<div class="auth-page">
+    
+            <div class="auth-page__content">
+                <h1 class="auth-page__title">{{'FeelForm' | translate}}</h1>
+                <p class="auth-page__state">
+                    <a ui-sref="app.login" ng-show="$ctrl.authType === 'register'" class="auth-page__state-link">{{'haveAccount' | translate}}</a>
+                    <a ui-sref="app.register" ng-show="$ctrl.authType === 'login'" class="auth-page__state-link">{{'needAccount' | translate}}</a>
+                </p>
+
+                <list-errors errors="$ctrl.errors" class="error"></list-errors>
+
+                <form ng-submit="$ctrl.submitForm()" class="formBox">
+                    <fieldset ng-disabled="$ctrl.isSubmitting" class="formBox__main-form-group">
+                        <fieldset class="formBox__form-group" ng-show="$ctrl.authType === 'register'">
+                            <input type="text" class="formBox__field" placeholder="Username" ng-model="$ctrl.formData.username">
+                        </fieldset>
+                        <fieldset class="formBox__form-group">
+                            <input type="email" class="formBox__field" placeholder="Email" ng-model="$ctrl.formData.email">
+                        </fieldset>
+                        <fieldset class="formBox__form-group">
+                            <input type="password" class="formBox__field" placeholder="Password" ng-model="$ctrl.formData.password">
+                        </fieldset>
+
+                        <button type="submit" class="formBox__btn btn-submit">{{'button' | translate}}</button>
+                    </fieldset>
+                </form>
+            </div>
+</div>

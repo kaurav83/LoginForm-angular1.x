@@ -1,0 +1,9 @@
+.attr {
+    &__link-source {
+        color: #fff;
+        &:hover {
+            color: lightblue;
+            transition: $default-transition;
+        }
+    }
+}
